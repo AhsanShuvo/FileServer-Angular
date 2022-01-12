@@ -1,0 +1,30 @@
+<div class="container body">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+    <mat-form-field class="login-input">
+      <input matInput formControlName="email" placeholder="Email">
+      <mat-error *ngIf="loginForm.get('email').hasError('required') || loginForm.get('email').dirty">
+        <mat-error *ngIf="loginForm.get('email').hasError('required') ; else elseBlock">
+          Email is required!
+        </mat-error>
+        <ng-template #elseBlock>
+          <mat-error *ngIf="loginForm.get('email').dirty">
+            Please enter a valid email address!
+          </mat-error>
+        </ng-template>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="login-input">
+      <input matInput formControlName="password" placeholder="Password" type="password">
+      <mat-error *ngIf="loginForm.get('password').hasError('required')">
+        Password is required!
+      </mat-error>
+    </mat-form-field>
+    <button class="login-input" type="submit" mat-flat-button color="primary">Log In</button>
+    <p>or</p>
+    <a class="sign-up-button" type="button" mat-flat-button color="primary" [routerLink]="['/authentication/signup']">Sign Up</a>
+    <div class="bottom-section">
+      <mat-checkbox formControlName="rememberMe">Remember Me</mat-checkbox>
+      <a class="trouble-link" href='authentication/forget-password'>Having trouble loggin in?</a>
+    </div>
+  </form>
+</div>

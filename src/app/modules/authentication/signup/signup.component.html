@@ -1,0 +1,103 @@
+<div class="container body">
+  <form class="signup-form" [formGroup]="signupForm" (submit)="onSubmit(signupForm)">
+    <div *ngIf="step1; else elseBlock">  
+      <h2 class="title">Signup</h2>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="email" placeholder="Your Email">
+        <mat-error *ngIf="signupForm.get('email').hasError('required') || signupForm.get('email').dirty">
+          <mat-error *ngIf="signupForm.get('email').hasError('required') ; else elseBlock">
+            Email is required!
+          </mat-error>
+          <ng-template #elseBlock>
+            <mat-error *ngIf="signupForm.get('email').dirty">
+              Please enter a valid email address!
+            </mat-error>
+          </ng-template>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="password" placeholder="Enter Your Password" type="password" (input)="signupForm.get('confirmPass').updateValueAndValidity()">
+        <mat-error *ngIf="signupForm.get('password').hasError('required')">
+          Password is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="confirmPass" placeholder="Confirm Password" type="password" appConfirmEqualValidator="password">
+        <mat-error *ngIf="signupForm.get('confirmPass').hasError('notEquivalent')">
+          Password does not match!
+        </mat-error>
+      </mat-form-field>
+      <button type="button" class="sign-up-button" mat-flat-button [disabled]="signupForm.get('email').invalid || signupForm.get('confirmPass').invalid || signupForm.get('password').invalid" (click)="toggleStep()">Next</button>
+    </div>
+    <ng-template #elseBlock>
+      <h2 class="title">Signup (continued)</h2>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="firstName" placeholder="Legal first name">
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="lastName" placeholder="Legal last name">
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="company" placeholder="Company">
+        <mat-error *ngIf="signupForm.get('company').hasError('required')">
+          Comapny is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="address1" placeholder="Address1">
+        <mat-error *ngIf="signupForm.get('address1').hasError('required')">
+          Address1 is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="address2" placeholder="Address2">
+        <mat-error *ngIf="signupForm.get('address2').hasError('required')">
+          Address2 is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country" (selectionChange)="getStates($event.value)">
+          <mat-option *ngFor="let country of countries" [value]="country">{{country.display}}</mat-option>
+        </mat-select>  
+        <mat-error *ngIf="signupForm.get('country').hasError('required')">
+          Country is required!
+        </mat-error>  
+      </mat-form-field>
+      <mat-form-field class="signup-input" *ngIf="signupForm.get('country').valid">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state">
+          <mat-option *ngFor="let state of states" [value]="state">{{state.display}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="signupForm.get('state').hasError('required')">
+          State is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="city" placeholder="City">
+        <mat-error *ngIf="signupForm.get('city').hasError('required')">
+          City is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="zip" placeholder="Zip">
+        <mat-error *ngIf="signupForm.get('zip').hasError('required')">
+          Zip is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="phone" placeholder="Phone">
+        <mat-error *ngIf="signupForm.get('phone').hasError('required')">
+          Phone is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-input">
+        <input matInput formControlName="fax" placeholder="Fax">
+        <mat-error *ngIf="signupForm.get('fax').hasError('required')">
+          Fax is required!
+        </mat-error>
+      </mat-form-field>
+      <button type="submit" class="sign-up-button" mat-flat-button color="primary">Finish</button>
+    </ng-template>
+  </form>
+</div>

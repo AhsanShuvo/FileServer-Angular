@@ -1,0 +1,53 @@
+.body{
+  min-height: 76.8vh;
+}
+
+.dropzone {
+  width: 450px;
+  height: 150px;
+  padding: 2rem; 
+  text-align: center; 
+  border: dashed 1px  #979797;
+  position: relative;
+  margin: 60px auto;
+  background-color:rgb(211, 224, 241);
+}
+
+input {
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%; 
+  top: 0; 
+  left: 0;
+}
+
+h3{
+  font-size: 20px;
+  font-weight: 600;
+  color: #37424c;
+}
+
+.status-box {
+  margin-left: 30%;
+  margin-top: 10px;
+  max-height: 250px;
+  width: 750px;
+  overflow: auto; 
+}
+
+.file-field {
+  float: left;
+  width: 400px;
+}
+
+.status-field {
+  float: left;
+  width: 200px;
+}
+
+.spinner-field {
+  float: left;
+  margin-bottom: 3px;
+}

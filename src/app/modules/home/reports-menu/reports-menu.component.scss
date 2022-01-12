@@ -1,0 +1,94 @@
+.menu-title {
+  text-align: center;
+  color: rgb(6, 12, 92);
+  font-family: fVerdana, Geneva, sans-serif;
+  margin-top: 20px;
+}
+
+.request-title {
+  color: rgb(6, 12, 92);
+  font-family: fVerdana, Geneva, sans-serif;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.dropdown {
+  flex: 3; 
+  float: left;
+  border: 2px;
+  margin-left: 10px;
+}
+
+.main-body {
+  height: 450px;
+  width: 100%;
+  display: flex;
+}
+
+.report-body {
+  float: left;
+  flex: 2;
+  height: 449px;
+}
+
+.title {
+  color: rgb(145, 75, 10);
+  margin-left: 30px;
+  margin-top: 80px;
+}
+
+.report-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.list-item {
+  margin-left: 15px;
+  font-size: 17px;
+  color: rgb(3, 8, 82);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.request-body {
+  width: 1100px;
+}
+
+.table-div {
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+table {
+  width: 1000px;
+  margin-left: 20px;
+  border: groove;
+  margin-bottom: 5px;
+  border-width: 1px;
+}
+
+.icon {
+  font-size: 15px;
+}
+
+th {
+  font-size: 15px;
+}
+
+.action {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.name-box {
+  width: 300px;
+}
+
+.date-box {
+  width: 300px;
+}
+
+.action-box {
+  width: 100px; 
+  display: hidden;
+}

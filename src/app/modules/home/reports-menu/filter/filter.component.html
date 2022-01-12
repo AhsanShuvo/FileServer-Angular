@@ -1,0 +1,23 @@
+<form class="dropdown" [formGroup]="form">
+  <div class="filters-header">
+    <button mat-raised-button color="warn" (click)="reset()" class="btn-reset">Reset Filters</button>
+    <h2 class="title">Filters:</h2>
+    <div *ngFor="let item of reportsFilter; let i = index">
+      <mat-form-field class="input-field">
+        <span><mat-label class="label">{{item.attributes.field_display}}:</mat-label></span>
+        <mat-select formControlName = {{item.attributes.field_name}} multiple = {{isMultiSelected[i]}}>
+          <mat-option *ngFor="let selector of item.attributes.values" [value]="selector">{{selector}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="input-field">
+      <span><mat-label>StartDate:</mat-label></span>
+      <input matInput type="date" formControlName="startDate">
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <span><mat-label>EndDate</mat-label></span>
+      <input matInput type="date" formControlName="endDate">
+    </mat-form-field> 
+  </div>
+</form>
+  

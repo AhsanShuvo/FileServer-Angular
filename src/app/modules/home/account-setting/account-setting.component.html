@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="form-body">
+    <div *ngIf="loadingIndicator" class="mat-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+    <form class="profile-form" [formGroup]="profileForm" (submit)="onSubmit(profileForm)" *ngIf="profileForm">
+      <h2 class="title">Account Settings</h2>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="firstName" placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="lastName" placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="company" placeholder="Company">
+        <mat-error *ngIf="profileForm.get('company').hasError('required')">
+          Company is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="address1" placeholder="Address1">
+        <mat-error *ngIf="profileForm.get('address1').hasError('required')">
+          Address1 is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="address2" placeholder="Address2">
+        <mat-error *ngIf="profileForm.get('address2').hasError('required')">
+          Address2 is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="profile-input">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country" (selectionChange)="getStates($event.value)">
+          <mat-option *ngFor="let country of countries" [value]="country">{{country.display}}</mat-option>
+        </mat-select>  
+        <mat-error *ngIf="profileForm.get('country').hasError('required')">
+          Country is required!
+        </mat-error>  
+      </mat-form-field>
+      <mat-form-field class="profile-input" *ngIf="profileForm.get('country').valid">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state">
+          <mat-option *ngFor="let state of states" [value]="state">{{state.display}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="profileForm.get('state').hasError('required')">
+          State is required!
+        </mat-error>
+      </mat-form-field>
+        <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="city" placeholder="City">
+        <mat-error *ngIf="profileForm.get('city').hasError('required')">
+          City is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="zip" placeholder="Zip">
+        <mat-error *ngIf="profileForm.get('zip').hasError('required')">
+          Zip is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="phone" placeholder="Phone">
+        <mat-error *ngIf="profileForm.get('phone').hasError('required')">
+          Phone is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="profile-input" appearance="outline">
+        <input matInput formControlName="fax" placeholder="Fax">
+        <mat-error *ngIf="profileForm.get('fax').hasError('required')">
+          Fax is required!
+        </mat-error>
+      </mat-form-field>
+      <div class="footer">
+        <button type="button" mat-raised-button class="btn-cancel" (click)="redirectToHome()">Cancel</button>
+        <button type="submit" mat-raised-button color="primary" class="btn-save">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.body {
+  display: flex;
+  height: 100%;
+  overflow: auto;
+}
+  
+.login-form {
+  min-width: 320px;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.login-input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.sign-up-button {
+  width: 100%;
+  background-color: rgb(150, 190, 255);
+  color: black;
+}
+
+.bottom-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.trouble-link {
+  text-decoration: none;
+}
+  

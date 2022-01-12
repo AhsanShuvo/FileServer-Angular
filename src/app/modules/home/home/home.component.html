@@ -1,0 +1,25 @@
+<div class="container body">
+  <div class="dropzone" appDragDrop (fileDropped)="onFileDropped($event)">
+    <img src="assets/img/icons8-upload-64.png">
+    <h3>Drag and Drop file(s) here</h3>
+  </div>
+  <div>
+    <mat-list class="status-box">
+      <mat-list-item *ngFor="let item of files">
+        <div class="file-field"> {{item.name}}</div>
+        <div class="status-field">{{item.status}}</div>
+        <div class="spinner-field" *ngIf="item.status === endStatus; else success;">
+          <mat-icon>done</mat-icon>
+        </div>
+        <ng-template #success class="spinner-field">
+          <ng-container *ngIf="item.status === failedStatus; else elseBlock">
+            <mat-icon>error</mat-icon>
+          </ng-container>
+        </ng-template>
+        <ng-template #elseBlock class="spinner-field">
+          <mat-progress-spinner mode="indeterminate" [diameter]="20"></mat-progress-spinner>
+        </ng-template>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

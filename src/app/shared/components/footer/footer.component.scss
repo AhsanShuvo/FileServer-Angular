@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(192,192,192);
+  bottom: 0px;
+  height: 100%;
+}
+
+.footer > div {
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 15px;
+  font-size: 15px;
+}

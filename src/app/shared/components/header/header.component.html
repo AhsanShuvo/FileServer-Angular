@@ -1,0 +1,13 @@
+<mat-toolbar class="header">
+  <button mat-icon-button *ngIf="state === stateEnum.home" (click)="(openSideNav())" id="menu-button"><mat-icon>menu</mat-icon></button>
+  <div class="logo-image">
+    <img src="assets/img/AvFinity_color_bigger_R2.png">
+  </div>
+  <div class="header-area" id="main-nav">OASIS</div>
+  <div class="header-area">
+    <div class="nav-last-childs" *ngIf="state === stateEnum.home" (click)="logout()">Logout</div>
+    <a class="nav-last-childs" *ngIf="state === stateEnum.signup" [routerLink]="['/authentication/login']">Login</a>
+    <div class="nav-last-childs" (click)="redirectToHelp()">Help</div>
+    <div class="nav-last-childs" *ngIf="state === stateEnum.home" (click)="redirectToHome()">Apps</div>
+  </div>
+</mat-toolbar>
